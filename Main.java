@@ -14,7 +14,7 @@
  *  Follow it with additional details about its purpose, what abstraction
  *  it represents, and how to use it.
  * 
- *  @author Armaan
+ *  @author Jonathan, Armaan, Kunwoo
  *  @version Sep 14, 2026
  */
 import java.util.Scanner;
