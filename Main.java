@@ -38,6 +38,7 @@ public class Main
         boolean roundRun = true;
         Claw claw = new Claw();
         Scanner userInput = new Scanner(System.in);
+        List<Prize>prizes = new prizeListCreation();
         
         while (roundRun)
         {
@@ -70,7 +71,7 @@ public class Main
         
         for (int i = 0; i < prizes.size(); i++)
         {
-            for (int j = i; j < prizes.size(); j++)
+            for (int j = i + 1; j < prizes.size(); j++)
             {
                 while (prizes.get(i).equals(prizes.get(j)))
                 {
@@ -78,7 +79,6 @@ public class Main
                 }
             }
         }
-        
         return prizes;
     }
     
