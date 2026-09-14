@@ -20,7 +20,7 @@ import java.util.Random;
  *  @version Sep 14, 2026
  */
 
-public class Prize
+public class Prize extends Main
 {
   //~ Fields ................................................................
     private int xCoord;
@@ -74,8 +74,7 @@ public class Prize
     public int generateRandomNumber(int min, int max)
     {
         Random rand =  new Random();
-        this.percentage = rand.nextInt((max - min) + 1) + min; 
-        return percentage;
+        return rand.nextInt((max - min) + 1) + min;
     }
     /**
      * Getting the percentage of the item. 
