@@ -8,6 +8,7 @@ class MainTest extends Main
     void test()
     {
         main();
+        
     }
     //~ Fields ................................................................
 

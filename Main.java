@@ -27,10 +27,24 @@ public class Main
      */
     public void main()
     {
+        boolean roundRun = true;
+        Claw claw = new Claw();
         Scanner userInput = new Scanner(System.in);
-        System.out.print("Test: Enter left: ");
-        String userInputString = userInput.nextLine();
-        System.out.println(userInputString);
+        while (roundRun)
+        {
+            System.out.print("Test: Enter command: ");
+            String userInputString = userInput.nextLine();
+            System.out.println(userInputString);
+            if (userInputString.equals(" "))
+            {
+                roundRun = false;
+            }
+            claw.move(userInputString);
+        }
+        
+        
+        
+        
     }
     //~ Fields ................................................................
 
