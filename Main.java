@@ -23,7 +23,7 @@ public class Main
 
     // ----------------------------------------------------------
     /**
-     * Create a new Main object.
+     * The main game
      */
     public void main()
     {
