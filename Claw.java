@@ -9,20 +9,32 @@
 // I have not used any assistance for the assignment beyond course resources and
 // staff.
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  * Creating a claw class that allows users to move claw along the coordinates.
- * @author Kunwoo Kim
+ * @author Kunwoo Kim, Armaan Ali, Jonathan Elliott
  * @version 2026.09.14 
  */
 public class Claw {
     //~ Fields ................................................................
     private int x;
     private int y;
-    //~ Constructors ..........................................................
     
+    Scanner sc = new Scanner(System.in);
+    //~ Constructors ..........................................................
+    /**
+     * When claw is generated, it starts at the coordinate (0,0).
+     */
+    public Claw() {
+        x = 0;
+        y = 0;
+    }
     //~Public  Methods ........................................................
     /**
      * A getter method for x.
+     * @return returns the current x coordinate
      */
     public int getX() {
         return x;
@@ -36,6 +48,7 @@ public class Claw {
     }
     /**
      * A getter method for y.
+     * @return returns the current y coordinate.
      */
     public int getY() {
         return y;
@@ -46,5 +59,64 @@ public class Claw {
      */
     public void setY(int y) {
         this.y = y;
-    }   
+    }
+    /**
+     * Every time the user gets the prize, the claw is sent back to (0,0).
+     */
+    public void reset() {
+        x = 0;
+        y = 0;
+    }
+    /**
+     * A method that prints the user the current location of claw. 
+     */
+    public void location() {
+        System.out.println("The current location: (" + x + ", "+ y + ")");
+    }
+    public void trial() {
+        //
+    }
+    
+    /**
+     * A method that moves the claw with the input made by the user.
+     * An error will be thrown if the user tries to go out of bound.
+     * After each trial, it will print the current location of claw.
+     * @param input This will be what the user inputs to move the claw through scanner. 
+     */
+    public void move(String input) {
+        switch (input) {
+            case "w":
+                if (y >= 4) {
+                    throw new IllegalArgumentException("You are going out of grid. Invalid input");
+                }
+                y += 1;
+                location();
+                break;      
+            case "a":
+                if (x <= 0) {
+                    throw new IllegalArgumentException("You are going out of grid. Invalid input");
+                }
+                x -= 1;
+                location();
+                break;
+            case "s":
+                if (y <= 0) {
+                throw new IllegalArgumentException("You are going out of grid. Invalid input");
+                }
+                y -= 1; 
+                break;
+            case "d":
+                if (x >= 4) {
+                    throw new IllegalArgumentException("You are going out of grid. Invalid input");
+                }
+                x += 1;
+                break;
+            case " ":
+                //if there is a prize at the certain x and y, gives it a try, if throw throw an error. 
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid input. WASD to move the claw and space bar to give it a try!");
+        }
+    }
+    
 }
