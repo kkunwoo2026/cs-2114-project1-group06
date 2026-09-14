@@ -35,9 +35,8 @@ public class Prize extends Main
      * Create a new Prize object.
      * @param xCoord for the x coordinate of the prize class. 
      * @param yCoord for the y coordinate of the prize class. 
-     * @param percentage for the percentages of the items. 
      */
-    public void setPrize(int xCoord, int yCoord, int percentage)
+    public void setPrize(int xCoord, int yCoord)
     {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
