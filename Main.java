@@ -25,10 +25,10 @@ public class Main
     /**
      * Create a new Main object.
      */
-    public static Main()
+    public void main()
     {
         Scanner userInput = new Scanner(System.in);
-        System.out.print("Test: Enter left");
+        System.out.print("Test: Enter left: ");
         String userInputString = userInput.nextLine();
         System.out.println(userInputString);
     }
