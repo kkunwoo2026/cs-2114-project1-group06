@@ -89,27 +89,35 @@ public class Claw {
                 if (y >= 4) {
                     System.out.println("You are going out of grid. Invalid input");
                 }
-                y += 1;
+                else {
+                    y += 1;
+                }
                 location();
                 break;      
             case "a":
                 if (x <= 0) {
                     System.out.println("You are going out of grid. Invalid input");
                 }
-                x -= 1;
+                else {
+                    x -= 1;
+                }
                 location();
                 break;
             case "s":
                 if (y <= 0) {
                     System.out.println("You are going out of grid. Invalid input");
                 }
-                y -= 1; 
+                else {
+                    y -= 1;
+                } 
                 break;
             case "d":
                 if (x >= 4) {
                     System.out.println("You are going out of grid. Invalid input");
                 }
-                x += 1;
+                else {
+                    x += 1;
+                }
                 location();
                 break;
             case " ":
