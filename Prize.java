@@ -25,6 +25,8 @@ public class Prize
   //~ Fields ................................................................
     private int xCoord;
     private int yCoord;
+    private int percentage;
+    
 //~ Constructors ..........................................................
 
 //~Public  Methods ........................................................
@@ -33,11 +35,13 @@ public class Prize
      * Create a new Prize object.
      * @param xCoord for the x coordinate of the prize class. 
      * @param yCoord for the y coordinate of the prize class. 
+     * @param percentage for the percentages of the items. 
      */
-    public void setPrize(int xCoord, int yCoord)
+    public void setPrize(int xCoord, int yCoord, int percentage)
     {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
+        this.percentage = percentage;
     }
     // ----------------------------------------------------------
     /**
@@ -59,6 +63,29 @@ public class Prize
         return yCoord;
     }
     // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param min for the minimum number
+     * @param max for the maximum number
+     * @return the number for percentage
+     */
+    // ----------------------------------------------------------
+    // ----------------------------------------------------------
+    public int generateRandomNumber(int min, int max)
+    {
+        Random rand =  new Random();
+        this.percentage = rand.nextInt((max - min) + 1) + min; 
+        return percentage;
+    }
+    /**
+     * Getting the percentage of the item. 
+     * @return percentage of the item. 
+     */
+    public int getPercentage()
+    {
+        return this.generateRandomNumber(1,100);
+    }
+    
     
 
 }
