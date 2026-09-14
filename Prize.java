@@ -41,7 +41,7 @@ public class Prize
     {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
-        this.percentage = percentage;
+        this.percentage = generateRandomNumber(1, 100);
     }
     // ----------------------------------------------------------
     /**
@@ -83,7 +83,7 @@ public class Prize
      */
     public int getPercentage()
     {
-        return this.generateRandomNumber(1,100);
+        return percentage;
     }
     
     
