@@ -35,9 +35,8 @@ public class Prize extends Main
      * Create a new Prize object.
      * @param xCoord for the x coordinate of the prize class. 
      * @param yCoord for the y coordinate of the prize class. 
-     * @param percentage for the percentages of the items. 
      */
-    public void setPrize(int xCoord, int yCoord, int percentage)
+    public void setPrize(int xCoord, int yCoord)
     {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
@@ -53,6 +52,16 @@ public class Prize extends Main
         return xCoord;
     }
     // ----------------------------------------------------------
+ // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param xCoord the x coordinate for the prize.
+     */
+    public void setXCoord(int xCoord)
+    {
+        this.xCoord = xCoord;
+    }
+    // ----------------------------------------------------------
     // ----------------------------------------------------------
     /**
      * Place a description of your method here.
@@ -65,9 +74,18 @@ public class Prize extends Main
     // ----------------------------------------------------------
     /**
      * Place a description of your method here.
-     * @param min for the minimum number
-     * @param max for the maximum number
-     * @return the number for percentage
+     * @param yCoord the x coordinate for the prize.
+     */
+    public void setYCoord(int yCoord)
+    {
+        this.yCoord = yCoord;
+    }
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param min the minimum number of the range.
+     * @param max the maximum number of the range.
+     * @return the random number.
      */
     // ----------------------------------------------------------
     // ----------------------------------------------------------
