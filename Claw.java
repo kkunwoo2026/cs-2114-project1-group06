@@ -74,7 +74,7 @@ public class Claw {
         System.out.println("The current location: (" + x + ", "+ y + ")");
     }
     public void trial() {
-        //
+        //method stub
     }
     
     /**
@@ -87,35 +87,36 @@ public class Claw {
         switch (input) {
             case "w":
                 if (y >= 4) {
-                    throw new IllegalArgumentException("You are going out of grid. Invalid input");
+                    System.out.println("You are going out of grid. Invalid input");
                 }
                 y += 1;
                 location();
                 break;      
             case "a":
                 if (x <= 0) {
-                    throw new IllegalArgumentException("You are going out of grid. Invalid input");
+                    System.out.println("You are going out of grid. Invalid input");
                 }
                 x -= 1;
                 location();
                 break;
             case "s":
                 if (y <= 0) {
-                throw new IllegalArgumentException("You are going out of grid. Invalid input");
+                    System.out.println("You are going out of grid. Invalid input");
                 }
                 y -= 1; 
                 break;
             case "d":
                 if (x >= 4) {
-                    throw new IllegalArgumentException("You are going out of grid. Invalid input");
+                    System.out.println("You are going out of grid. Invalid input");
                 }
                 x += 1;
+                location();
                 break;
             case " ":
                 //if there is a prize at the certain x and y, gives it a try, if throw throw an error. 
                 break;
             default:
-                throw new IllegalArgumentException("Invalid input. WASD to move the claw and space bar to give it a try!");
+                System.out.println("Invalid input. WASD to move the claw and space bar to give it a try!");
         }
     }
     
