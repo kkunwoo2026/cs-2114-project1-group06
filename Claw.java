@@ -76,7 +76,7 @@ public class Claw extends Main {
         System.out.println("The current location: (" + x + ", "+ y + ")");
     }
     public void trial() {
-        //method stub
+        //Method Stub
     }
     //public boolean hasPrize(List<Prize> prizes) {
         //boolean result = false;
@@ -139,6 +139,7 @@ public class Claw extends Main {
                     location();
                 }
                 else {
+                    System.out.println("Hit in claw");
                     trial();
                     reset();
                     location();

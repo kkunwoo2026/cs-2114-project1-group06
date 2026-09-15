@@ -25,7 +25,7 @@ public class Main
 {
     
   //~ Fields ................................................................
-    private List<Prize> prizeList;
+    private List<Prize> prizeList = new ArrayList<>();
     private Claw claw;
     
     //~ Constructors ..........................................................
@@ -39,12 +39,18 @@ public class Main
     {
         boolean roundRun = true;
         Scanner userInput = new Scanner(System.in);
+        
         this.setPrizeList();
         this.setClaw();
+        claw.setX(prizeList.get(0).getXCoord());
+        claw.setY(prizeList.get(0).getYCoord());
+        
         
         
         System.out.println(prizeList.get(0).getXCoord());
         System.out.println(prizeList.get(0).getYCoord());
+        System.out.println(claw.getX());
+        System.out.println(claw.getY());
         
         /**
          * runs the rounds till prize or miss
@@ -60,6 +66,9 @@ public class Main
             if (userInputString.equals(" "))
             {
                 roundRun = false;
+                if (hasPrize()) {
+                    System.out.print("Hit!");
+                }
             }
             this.getClaw().move(userInputString);
         }           
@@ -72,13 +81,13 @@ public class Main
     {
         List<Prize> prizes = new ArrayList<>();
         Prize prize1 = new Prize();
-        prize1.setPrize(generateRandomNumber(0, 5), generateRandomNumber(0, 5));
+        prize1.setPrize(generateRandomNumber(0, 4), generateRandomNumber(0, 4));
         prizes.add(prize1);
         Prize prize2 = new Prize();
-        prize2.setPrize(generateRandomNumber(0, 5), generateRandomNumber(0, 5));
+        prize2.setPrize(generateRandomNumber(0, 4), generateRandomNumber(0, 4));
         prizes.add(prize2);
         Prize prize3 = new Prize();
-        prize3.setPrize(generateRandomNumber(0, 5), generateRandomNumber(0, 5));
+        prize3.setPrize(generateRandomNumber(0, 4), generateRandomNumber(0, 4));
         prizes.add(prize3);
         
         for (int i = 0; i < prizes.size(); i++)
@@ -103,9 +112,9 @@ public class Main
         boolean isPrizeHere = false;
         for (int i = 0; i < this.getPrizeList().size(); i++)
         {
-            if (prizeList.get(i).getXCoord() == this.getClaw().getX())
+            if (this.getPrizeList().get(i).getXCoord() == claw.getX())
             {
-                if (prizeList.get(i).getYCoord() == this.getClaw().getY())
+                if (this.getPrizeList().get(i).getYCoord() == claw.getY())
                 {
                     isPrizeHere = true;
                 }
