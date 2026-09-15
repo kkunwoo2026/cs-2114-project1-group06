@@ -42,11 +42,12 @@ public class Main
         
         this.setPrizeList();
         this.setClaw();
+        //puts claw on prize for testing
         claw.setX(prizeList.get(0).getXCoord());
         claw.setY(prizeList.get(0).getYCoord());
         
         
-        
+        //gets prize and claw coords for testing
         System.out.println(prizeList.get(0).getXCoord());
         System.out.println(prizeList.get(0).getYCoord());
         System.out.println(claw.getX());
