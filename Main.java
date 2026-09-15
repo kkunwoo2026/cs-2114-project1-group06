@@ -124,10 +124,11 @@ public class Main
         return isPrizeHere;
     }
     
+
     /**
-     * generate random number
+     * returns prize arrayList
+     * @return List<Prize> returns the prize list
      */
-    
     public List<Prize> getPrizeList()
     {
         return this.prizeList;
@@ -142,14 +143,26 @@ public class Main
         return this.claw;
     }
     
+    /**
+     * sets the prize list
+     */
     public void setPrizeList()
     {
         this.prizeList = prizeListCreation();
     }
+    /**
+     * sets the claw
+     */
     public void setClaw()
     {
         this.claw = new Claw();
     }
+    /**
+     * generates a random number with parameters
+     * @param min the minimum value of random
+     * @param max the maximum value of random
+     * @return int returns the randomly generated number
+     */
     public int generateRandomNumber(int min, int max)
     {
         Random rand =  new Random();
