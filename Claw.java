@@ -11,13 +11,15 @@
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Creating a claw class that allows users to move claw along the coordinates.
  * @author Kunwoo Kim, Armaan Ali, Jonathan Elliott
  * @version 2026.09.14 
  */
-public class Claw {
+public class Claw extends Main {
     //~ Fields ................................................................
     private int x;
     private int y;
@@ -76,15 +78,15 @@ public class Claw {
     public void trial() {
         //method stub
     }
-    public boolean hasPrize(Prize[] prizes) {
-        boolean result = false;
-        for (Prize prize : prizes) {
-            if (x == prize.getXCoord() && y == prize.getYCoord()) {
-                result = true;
-            }
-        }
-        return result;
-    }
+    //public boolean hasPrize(List<Prize> prizes) {
+        //boolean result = false;
+        //for (Prize prize : prizes) {
+            //if (x == prize.getXCoord() && y == prize.getYCoord()) {
+                //result = true;
+            //}
+        //}
+        //return result;
+    //}
     
     /**
      * A method that moves the claw with the input made by the user.

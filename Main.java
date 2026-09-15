@@ -25,7 +25,9 @@ public class Main
 {
     
   //~ Fields ................................................................
-
+    private List<Prize> prizeList;
+    private Claw claw;
+    
     //~ Constructors ..........................................................
     
     //~Public  Methods ........................................................
@@ -36,21 +38,30 @@ public class Main
     public void main()
     {
         boolean roundRun = true;
-        Claw claw = new Claw();
         Scanner userInput = new Scanner(System.in);
-        List<Prize> prizeList = new ArrayList<>();
-        prizeList = prizeListCreation();
+        this.setPrizeList();
+        this.setClaw();
         
+        
+        System.out.println(prizeList.get(0).getXCoord());
+        System.out.println(prizeList.get(0).getYCoord());
+        
+        /**
+         * runs the rounds till prize or miss
+         */
         while (roundRun)
         {
             System.out.print("Test: Enter command: ");
             String userInputString = userInput.nextLine();
             System.out.println(userInputString);
+            
+            
+            
             if (userInputString.equals(" "))
             {
                 roundRun = false;
             }
-            claw.move(userInputString);
+            this.getClaw().move(userInputString);
         }           
     }
     
@@ -84,11 +95,55 @@ public class Main
     }
     
     /**
+     * checks if prize is where claw is
+     * @return boolean returns if prize is where claw is
+     */
+    public boolean hasPrize()
+    {
+        boolean isPrizeHere = false;
+        for (int i = 0; i < this.getPrizeList().size(); i++)
+        {
+            if (prizeList.get(i).getXCoord() == this.getClaw().getX())
+            {
+                if (prizeList.get(i).getYCoord() == this.getClaw().getY())
+                {
+                    isPrizeHere = true;
+                }
+            }
+        }
+        return isPrizeHere;
+    }
+    
+    /**
      * generate random number
      */
+    
+    public List<Prize> getPrizeList()
+    {
+        return this.prizeList;
+    }
+    
+    /**
+     * returns the claw
+     * @return Claw returns the claw
+     */
+    public Claw getClaw()
+    {
+        return this.claw;
+    }
+    
+    public void setPrizeList()
+    {
+        this.prizeList = prizeListCreation();
+    }
+    public void setClaw()
+    {
+        this.claw = new Claw();
+    }
     public int generateRandomNumber(int min, int max)
     {
         Random rand =  new Random();
         return rand.nextInt((max - min) + 1) + min;
     }
+    
 }
