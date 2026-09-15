@@ -38,7 +38,8 @@ public class Main
         boolean roundRun = true;
         Claw claw = new Claw();
         Scanner userInput = new Scanner(System.in);
-        List<Prize>prizes = new prizeListCreation();
+        List<Prize> prizeList = new ArrayList<>();
+        prizeList = prizeListCreation();
         
         while (roundRun)
         {
