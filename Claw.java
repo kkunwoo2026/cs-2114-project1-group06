@@ -76,6 +76,15 @@ public class Claw {
     public void trial() {
         //method stub
     }
+    public boolean hasPrize(Prize[] prizes) {
+        boolean result = false;
+        for (Prize prize : prizes) {
+            if (x == prize.getXCoord() && y == prize.getYCoord()) {
+                result = true;
+            }
+        }
+        return result;
+    }
     
     /**
      * A method that moves the claw with the input made by the user.
@@ -109,7 +118,8 @@ public class Claw {
                 }
                 else {
                     y -= 1;
-                } 
+                }
+                location();
                 break;
             case "d":
                 if (x >= 4) {
@@ -121,7 +131,16 @@ public class Claw {
                 location();
                 break;
             case " ":
-                //if there is a prize at the certain x and y, gives it a try, if throw throw an error. 
+                if (!hasPrize()) {
+                    System.out.print("Miss!");
+                    reset();
+                    location();
+                }
+                else {
+                    trial();
+                    reset();
+                    location();
+                }
                 break;
             default:
                 System.out.println("Invalid input. WASD to move the claw and space bar to give it a try!");
