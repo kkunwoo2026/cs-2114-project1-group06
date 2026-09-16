@@ -26,6 +26,7 @@ public class Main
     
   //~ Fields ................................................................
     private List<Prize> prizeList = new ArrayList<>();
+    private List<Prize> collectedList = new ArrayList<>();
     private Claw claw;
     
     //~ Constructors ..........................................................
@@ -42,23 +43,24 @@ public class Main
         
         this.setPrizeList();
         this.setClaw();
-        //puts claw on prize for testing
-        claw.setX(prizeList.get(0).getXCoord());
-        claw.setY(prizeList.get(0).getYCoord());
         
+        int prize1X = prizeList.get(0).getXCoord();
+        int prize1Y = prizeList.get(0).getYCoord();
+        int prize2X = prizeList.get(1).getXCoord();
+        int prize2Y = prizeList.get(1).getYCoord();
+        int prize3X = prizeList.get(2).getXCoord();
+        int prize3Y = prizeList.get(2).getYCoord();
         
-        //gets prize and claw coords for testing
-        System.out.println(prizeList.get(0).getXCoord());
-        System.out.println(prizeList.get(0).getYCoord());
-        System.out.println(claw.getX());
-        System.out.println(claw.getY());
+        System.out.println("Prize 1 is at: (" + prize1X + ", " + prize1Y + ")");
+        System.out.println("Prize 2 is at: (" + prize2X + ", " + prize2Y + ")");
+        System.out.println("Prize 3 is at: (" + prize3X + ", " + prize3Y + ")");
         
         /**
          * runs the rounds till prize or miss
          */
         while (roundRun)
         {
-            System.out.print("Test: Enter command: ");
+            System.out.print("Enter command: ");
             String userInputString = userInput.nextLine();
             System.out.println(userInputString);
             
@@ -69,7 +71,10 @@ public class Main
                 roundRun = false;
                 if (hasPrize()) {
                     System.out.print("Hit! ");
-                    
+                this.collectedList.add(prizeList.get(this.whatPrizeHere()));
+                prizeList.remove(this.whatPrizeHere());
+                System.out.println("Amount of Prizes left to collect: " + prizeList.size());
+                System.out.println("Amount of Prizes collected: " + collectedList.size());
                 }
             }
             this.getClaw().move(userInputString);
@@ -123,6 +128,25 @@ public class Main
             }
         }
         return isPrizeHere;
+    }
+    
+    /**
+     * determines if and what prize is below the claw
+     * @return int returns the arrayList position of the prize
+     */
+    public int whatPrizeHere()
+    {
+        for (int i = 0; i < this.getPrizeList().size(); i++)
+        {
+            if (this.getPrizeList().get(i).getXCoord() == claw.getX())
+            {
+                if (this.getPrizeList().get(i).getYCoord() == claw.getY())
+                {
+                    return i;
+                }
+            }          
+        }
+        return -1;
     }
     
 
