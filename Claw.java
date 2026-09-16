@@ -75,19 +75,6 @@ public class Claw extends Main {
     public void location() {
         System.out.println("The current claw location: (" + x + ", "+ y + ")");
     }
-    public void trial() {
-        //Method Stub
-    }
-    
-    public boolean hasPrize(List<Prize> prizes) {
-        boolean result = false;
-        for (Prize prize : prizes) {
-            if (x == prize.getXCoord() && y == prize.getYCoord()) {
-                result = true;
-            }
-        }
-        return result;
-    }
     
     /**
      * A method that moves the claw with the input made by the user.
@@ -134,17 +121,8 @@ public class Claw extends Main {
                 location();
                 break;
             case " ":
-                //if (!hasPrize()) {
-                    //System.out.print("Miss!");
                     reset();
                     location();
-                //}
-                //else {
-                    //System.out.println("Hit in claw");
-                    //trial();
-                    //reset();
-                    //location();
-                //}
                 break;
             case "h":
                 //nothing
