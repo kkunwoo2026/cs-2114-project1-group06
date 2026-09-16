@@ -63,12 +63,13 @@ public class Main
             System.out.println(userInputString);
             
             
-            
+            //handles the claw picking up
             if (userInputString.equals(" "))
             {
                 roundRun = false;
                 if (hasPrize()) {
-                    System.out.print("Hit!");
+                    System.out.print("Hit! ");
+                    
                 }
             }
             this.getClaw().move(userInputString);

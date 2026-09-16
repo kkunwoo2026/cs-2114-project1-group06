@@ -133,17 +133,17 @@ public class Claw extends Main {
                 location();
                 break;
             case " ":
-                if (!hasPrize()) {
-                    System.out.print("Miss!");
+                //if (!hasPrize()) {
+                    //System.out.print("Miss!");
                     reset();
                     location();
-                }
-                else {
-                    System.out.println("Hit in claw");
-                    trial();
-                    reset();
-                    location();
-                }
+                //}
+                //else {
+                    //System.out.println("Hit in claw");
+                    //trial();
+                    //reset();
+                    //location();
+                //}
                 break;
             default:
                 System.out.println("Invalid input. WASD to move the claw and space bar to give it a try!");
