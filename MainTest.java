@@ -1,13 +1,13 @@
-import junit.framework.TestCase;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
-public class MainTest extends Main {
+class MainTest
+    extends Main
+{
 
-    
-    public void testMain() {
+    @Test
+    void test()
+    {
         main();
     }
     //~ Fields ................................................................

@@ -77,13 +77,13 @@ public class Main
                 if (hasPrize()) {
                     System.out.print("Hit! ");
                     this.collectedList.add(prizeList.get(this.whatPrizeHere()));
-                    prizeList.remove(this.whatPrizeHere());
-                    System.out.println("Amount of Prizes left to collect: " + prizeList.size());
+                    prizeList.set(this.whatPrizeHere(), null);
+                    System.out.println("Amount of Prizes left to collect: " + howManyPrizeLeft());
                     System.out.println("Amount of Prizes collected: " + collectedList.size());
                     printPrizeList();
                     
                     //if prize list is empty, end the game
-                    if (prizeList.size() == 0)
+                    if (howManyPrizeLeft() == 0)
                     {
                         roundRun = false;
                         System.out.println("Congrats you got all the prizes!");
@@ -103,6 +103,19 @@ public class Main
                 this.getClaw().move(userInputString);
             }
         }           
+    }
+    
+    public int howManyPrizeLeft()
+    {
+        int count = 0;
+        for (int i = 0; i < prizeList.size(); i++)
+        {
+            if (prizeList.get(i) != null)
+            {
+                count++;
+            }
+        }
+        return count;      
     }
     
     /**
@@ -146,11 +159,14 @@ public class Main
         boolean isPrizeHere = false;
         for (int i = 0; i < this.getPrizeList().size(); i++)
         {
-            if (this.getPrizeList().get(i).getXCoord() == claw.getX())
+            if (this.getPrizeList().get(i) != null)
             {
-                if (this.getPrizeList().get(i).getYCoord() == claw.getY())
+                if (this.getPrizeList().get(i).getXCoord() == claw.getX())
                 {
-                    isPrizeHere = true;
+                    if (this.getPrizeList().get(i).getYCoord() == claw.getY())
+                    {
+                        isPrizeHere = true;
+                    }
                 }
             }
         }
@@ -165,13 +181,16 @@ public class Main
     {
         for (int i = 0; i < this.getPrizeList().size(); i++)
         {
-            if (this.getPrizeList().get(i).getXCoord() == claw.getX())
+            if (this.getPrizeList().get(i) != null)
             {
-                if (this.getPrizeList().get(i).getYCoord() == claw.getY())
+                if (this.getPrizeList().get(i).getXCoord() == claw.getX())
                 {
-                    return i;
-                }
-            }          
+                    if (this.getPrizeList().get(i).getYCoord() == claw.getY())
+                    {
+                        return i;
+                    }
+                }     
+            }
         }
         return -1;
     }
@@ -183,7 +202,15 @@ public class Main
     {
         for (int i = 0; i < prizeList.size(); i++)
         {
-            System.out.println("Prize " + i + " is at: (" + prizeList.get(i).getXCoord() + ", " + prizeList.get(i).getYCoord() + ")");
+            if (prizeList.get(i) != null)
+            {
+                System.out.println("Prize " + (i + 1) + " is at: (" + prizeList.get(i).getXCoord() + ", " + prizeList.get(i).getYCoord() + ")");      
+
+            }
+            else
+            {
+                System.out.println("Prize " + (i + 1) + " taken!");
+            }
         }
     }
     
