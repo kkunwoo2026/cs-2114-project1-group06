@@ -44,16 +44,8 @@ public class Main
         this.setPrizeList();
         this.setClaw();
         
-        int prize1X = prizeList.get(0).getXCoord();
-        int prize1Y = prizeList.get(0).getYCoord();
-        int prize2X = prizeList.get(1).getXCoord();
-        int prize2Y = prizeList.get(1).getYCoord();
-        int prize3X = prizeList.get(2).getXCoord();
-        int prize3Y = prizeList.get(2).getYCoord();
+        printPrizeList();
         
-        System.out.println("Prize 1 is at: (" + prize1X + ", " + prize1Y + ")");
-        System.out.println("Prize 2 is at: (" + prize2X + ", " + prize2Y + ")");
-        System.out.println("Prize 3 is at: (" + prize3X + ", " + prize3Y + ")");
         
         /**
          * runs the rounds till prize or miss
@@ -66,15 +58,23 @@ public class Main
             
             
             //handles the claw picking up
+            //separate instruction if " " is entered
             if (userInputString.equals(" "))
             {
-                roundRun = false;
+                
                 if (hasPrize()) {
                     System.out.print("Hit! ");
-                this.collectedList.add(prizeList.get(this.whatPrizeHere()));
-                prizeList.remove(this.whatPrizeHere());
-                System.out.println("Amount of Prizes left to collect: " + prizeList.size());
-                System.out.println("Amount of Prizes collected: " + collectedList.size());
+                    this.collectedList.add(prizeList.get(this.whatPrizeHere()));
+                    prizeList.remove(this.whatPrizeHere());
+                    System.out.println("Amount of Prizes left to collect: " + prizeList.size());
+                    System.out.println("Amount of Prizes collected: " + collectedList.size());
+                    printPrizeList();
+                    if (prizeList.size() == 0)
+                    {
+                        roundRun = false;
+                        System.out.println("Congrats you got all the prizes!");
+                    }
+                
                 }
             }
             this.getClaw().move(userInputString);
@@ -147,6 +147,17 @@ public class Main
             }          
         }
         return -1;
+    }
+    
+    /**
+     * prints the current prizes still on the board
+     */
+    public void printPrizeList()
+    {
+        for (int i = 0; i < prizeList.size(); i++)
+        {
+            System.out.println("Prize " + i + " is at: (" + prizeList.get(i).getXCoord() + ", " + prizeList.get(i).getYCoord() + ")");
+        }
     }
     
 
