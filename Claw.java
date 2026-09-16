@@ -73,7 +73,7 @@ public class Claw extends Main {
      * A method that prints the user the current location of claw. 
      */
     public void location() {
-        System.out.println("The current location: (" + x + ", "+ y + ")");
+        System.out.println("The current claw location: (" + x + ", "+ y + ")");
     }
     public void trial() {
         //Method Stub
@@ -144,6 +144,9 @@ public class Claw extends Main {
                     //reset();
                     //location();
                 //}
+                break;
+            case "h":
+                //nothing
                 break;
             default:
                 System.out.println("Invalid input. WASD to move the claw and space bar to give it a try!");

@@ -38,20 +38,24 @@ public class Main
      */
     public void main()
     {
+        //setups the scanner and boolean to check round
         boolean roundRun = true;
         Scanner userInput = new Scanner(System.in);
         
+        //sets up the prize list and claw
         this.setPrizeList();
         this.setClaw();
         
+        //prints the current prizes
         printPrizeList();
         
+        //prints the help info at the start
+        printHelp();
         
-        /**
-         * runs the rounds till prize or miss
-         */
+        //runs the rounds till prize or miss      
         while (roundRun)
         {
+            //handles inputs from user
             System.out.print("Enter command: ");
             String userInputString = userInput.nextLine();
             System.out.println(userInputString);
@@ -61,7 +65,7 @@ public class Main
             //separate instruction if " " is entered
             if (userInputString.equals(" "))
             {
-                
+                //checks if a prize is here
                 if (hasPrize()) {
                     System.out.print("Hit! ");
                     this.collectedList.add(prizeList.get(this.whatPrizeHere()));
@@ -69,6 +73,8 @@ public class Main
                     System.out.println("Amount of Prizes left to collect: " + prizeList.size());
                     System.out.println("Amount of Prizes collected: " + collectedList.size());
                     printPrizeList();
+                    
+                    //if prize list is empty, end the game
                     if (prizeList.size() == 0)
                     {
                         roundRun = false;
@@ -77,7 +83,16 @@ public class Main
                 
                 }
             }
-            this.getClaw().move(userInputString);
+            //print help if h is inputed
+            if (userInputString.equals("h"))
+            {
+                printHelp();
+            }
+            //move the claw as long as the game is not over
+            if (roundRun)
+            {
+                this.getClaw().move(userInputString);
+            }
         }           
     }
     
@@ -100,11 +115,13 @@ public class Main
         for (int i = 0; i < prizes.size(); i++)
         {
             for (int j = i + 1; j < prizes.size(); j++)
-            {
+            { 
+                //make sure prizes are not on each other
                 while (prizes.get(i).equals(prizes.get(j)))
                 {
                     prizes.set(j, new Prize());
                 }
+                
             }
         }
         return prizes;
@@ -192,6 +209,13 @@ public class Main
     public void setClaw()
     {
         this.claw = new Claw();
+    }
+    /**
+     * prints the help text
+     */
+    public void printHelp()
+    {
+        System.out.println("Commands:\n'w' for up.\n's' for down.\n'd' for right.\n'a' for left.\n' 'to try to grab prize!\n'h' to see this message again.");
     }
     /**
      * generates a random number with parameters
