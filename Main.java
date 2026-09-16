@@ -87,6 +87,7 @@ public class Main
             if (userInputString.equals("h"))
             {
                 printHelp();
+                printPrizeList();
             }
             //move the claw as long as the game is not over
             if (roundRun)
@@ -117,7 +118,7 @@ public class Main
             for (int j = i + 1; j < prizes.size(); j++)
             { 
                 //make sure prizes are not on each other
-                while (prizes.get(i).equals(prizes.get(j)))
+                while (prizes.get(i).getXCoord() == (prizes.get(j).getXCoord()) && prizes.get(i).getYCoord() == (prizes.get(j).getYCoord()))
                 {
                     prizes.set(j, new Prize());
                 }
