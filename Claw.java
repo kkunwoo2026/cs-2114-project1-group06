@@ -78,15 +78,16 @@ public class Claw extends Main {
     public void trial() {
         //Method Stub
     }
-    //public boolean hasPrize(List<Prize> prizes) {
-        //boolean result = false;
-        //for (Prize prize : prizes) {
-            //if (x == prize.getXCoord() && y == prize.getYCoord()) {
-                //result = true;
-            //}
-        //}
-        //return result;
-    //}
+    
+    public boolean hasPrize(List<Prize> prizes) {
+        boolean result = false;
+        for (Prize prize : prizes) {
+            if (x == prize.getXCoord() && y == prize.getYCoord()) {
+                result = true;
+            }
+        }
+        return result;
+    }
     
     /**
      * A method that moves the claw with the input made by the user.

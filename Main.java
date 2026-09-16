@@ -3,7 +3,7 @@
 // As a Hokie, I will conduct myself with honor and integrity at all times.
 // I will not lie, cheat, or steal, nor will I accept the actions of those 
 // who do.
-// -- Armaan Ali (amali052024), Jonathan Elliott (ejonathan25), Kunwoo Kim ()
+// -- Armaan Ali (amali052024), Jonathan Elliott (ejonathan25), Kunwoo Kim (kkunwoo)
 //
 // LLM Statement: ******
 // I have not used any assistance for the assignment beyond course 
