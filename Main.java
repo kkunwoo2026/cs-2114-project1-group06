@@ -21,6 +21,14 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * 
+/**
+ *  The main class that handles the game
+ * 
+ *  @author Jonathan Elliott (ejonathan25)
+ *  @version Sep 16, 2026
+ */
 public class Main
 {
     
@@ -99,6 +107,7 @@ public class Main
     
     /**
      * creates the prizes and the list of them
+     * @return List<Prize> returns a generated list of prizes
      */
     public List<Prize> prizeListCreation()
     {
