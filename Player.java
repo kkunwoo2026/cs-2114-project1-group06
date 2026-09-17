@@ -12,24 +12,53 @@
 /**
  *  This is how the player would utilize from their inventory of items.
  * 
- *  @author Armaan
+ *  @author Armaan Ali
  *  @version Sep 14, 2026
  */
 public class Player
 {
-
-    // ----------------------------------------------------------
+//~ Fields ................................................................
+    private int tokens;
+//~ Constructors ..........................................................
+ // ----------------------------------------------------------
     /**
      * Create a new Player object.
+     * @param tokens for the current tokens.
      */
-    public Player()
+    public Player(int tokens)
     {
-        //~ Fields ................................................................
-
-        //~ Constructors ..........................................................
-
-        //~Public  Methods ........................................................
+        this.getTokens();
     }
+// ----------------------------------------------------------
+
+//~Public  Methods ........................................................
+    /**
+     * This method shows the tokens currently that the player has. 
+     * @return tokens for the tokens currently. 
+     */
+    public int getTokens()
+    {
+        return tokens;
+    }
+    // ----------------------------------------------------------
+    /**
+     * This method uses up the tokens for the game.
+     */
+    public void useTokens()
+    {
+        this.tokens = tokens - 5;
+    }
+ // ----------------------------------------------------------
+    /**
+     * This method adds more tokens for the game.
+     * @param addedTokens for the additional tokens needed for the player to
+     * operate the machine. 
+     */
+    public void addTokens(int addedTokens)
+    {
+        this.tokens = tokens + addedTokens;
+    }
+    
     
 
 }
