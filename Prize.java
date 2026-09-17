@@ -1,5 +1,7 @@
 import java.util.Random;
-
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 // Virginia Tech Honor Code Pledge:
 //
 // As a Hokie, I will conduct myself with honor and integrity at all times.
