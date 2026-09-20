@@ -127,6 +127,12 @@ public class Claw extends Main {
                 //nothing
                 //This is left as a stub on purpose, as it is also futher modified at Main class.
                 break;
+            case "lower":
+                System.out.println("Set to 15");
+                break;
+            case "higher":
+                System.out.println("Set to 50");
+                break;
             default:
                 System.out.println("Invalid input. WASD to move the claw and space bar to give it a try!");
         }

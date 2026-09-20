@@ -97,7 +97,6 @@ public class Prize extends Main
     public boolean tryPrize()
     {
         int randomNumber = generateRandomNumber(1, 100);
-
         return randomNumber <= percentage;
     }
     // ----------------------------------------------------------
@@ -105,6 +104,13 @@ public class Prize extends Main
     {
         Random rand =  new Random();
         return rand.nextInt((max - min) + 1) + min;
+    }
+    /**
+     * Allows to set different percentages.
+     * @param per the percentage you want to set.
+     */
+    public void setPercentage(int per) {
+        percentage = per;
     }
     /**
      * Getting the percentage of the item. 

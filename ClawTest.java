@@ -95,6 +95,16 @@ public class ClawTest extends TestCase {
         claw.move("h");
         assertEquals(0, claw.getX());
         assertEquals(0, claw.getY());
+        
+        //lower → modified in main 
+        claw.move("lower");
+        assertEquals(0, claw.getX());
+        assertEquals(0, claw.getY());
+        
+        //higher → modified in main
+        claw.move("higher");
+        assertEquals(0, claw.getX());
+        assertEquals(0, claw.getY());
 
         // space → reset
         claw.move(" ");

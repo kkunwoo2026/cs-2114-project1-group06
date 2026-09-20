@@ -10,10 +10,7 @@
 // resources and staff.
 
 /**
- *  Write a one-sentence summary of your class here.
- *  Follow it with additional details about its purpose, what abstraction
- *  it represents, and how to use it.
- * 
+ *  The main class. Where the whole program runs. 
  *  @author Jonathan, Armaan, Kunwoo
  *  @version Sep 14, 2026
  */
@@ -102,6 +99,18 @@ public class Main
             {
                 printHelp();
                 printPrizeList();
+            }
+            if (userInputString.equals("lower"))
+            {
+                for (int i = 0; i < this.getPrizeList().size(); i++) {
+                    this.getPrizeList().get(i).setPercentage(15);
+                }
+            }
+            if (userInputString.equals("higher"))
+            {
+                for (int i = 0; i < this.getPrizeList().size(); i++) {
+                    this.getPrizeList().get(i).setPercentage(50);
+                }
             }
             //move the claw as long as the game is not over
             if (roundRun)
