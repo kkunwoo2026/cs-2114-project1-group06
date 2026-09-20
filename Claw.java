@@ -1,5 +1,4 @@
 // Virginia Tech Honor Code Pledge:
-//
 // As a Hokie, I will conduct myself with honor and integrity at all times.
 // I will not lie, cheat, or steal, nor will I accept the actions of those who
 // do.
@@ -8,11 +7,6 @@
 // LLM Statement:
 // I have not used any assistance for the assignment beyond course resources and
 // staff.
-
-import java.util.Random;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Creating a claw class that allows users to move claw along the coordinates.
@@ -23,8 +17,6 @@ public class Claw extends Main {
     //~ Fields ................................................................
     private int x;
     private int y;
-    
-    Scanner sc = new Scanner(System.in);
     //~ Constructors ..........................................................
     /**
      * When claw is generated, it starts at the coordinate (0,0).
@@ -70,10 +62,17 @@ public class Claw extends Main {
         y = 0;
     }
     /**
+     * Makes the string of current location of claw. Allows us to test location.
+     * @return return String for location().
+     */
+    public String strLocation() {
+        return "The current claw location: (" + x + ", "+ y + ")";
+    }
+    /**
      * A method that prints the user the current location of claw. 
      */
     public void location() {
-        System.out.println("The current claw location: (" + x + ", "+ y + ")");
+        System.out.println(strLocation());
     }
     
     /**
@@ -126,10 +125,10 @@ public class Claw extends Main {
                 break;
             case "h":
                 //nothing
+                //This is left as a stub on purpose, as it is also futher modified at Main class.
                 break;
             default:
                 System.out.println("Invalid input. WASD to move the claw and space bar to give it a try!");
         }
     }
-    
 }
