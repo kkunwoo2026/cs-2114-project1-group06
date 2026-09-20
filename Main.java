@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * 
 /**
- *  The main class that handles the game
+ *  The main class that handles the whole game
  * 
  *  @author Jonathan Elliott (ejonathan25)
  *  @version Sep 16, 2026
