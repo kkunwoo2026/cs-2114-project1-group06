@@ -75,12 +75,18 @@ public class Main
             {
                 //checks if a prize is here
                 if (hasPrize()) {
-                    System.out.print("Hit! ");
-                    this.collectedList.add(prizeList.get(this.whatPrizeHere()));
-                    prizeList.set(this.whatPrizeHere(), null);
-                    System.out.println("Amount of Prizes left to collect: " + howManyPrizeLeft());
-                    System.out.println("Amount of Prizes collected: " + collectedList.size());
-                    printPrizeList();
+                    Prize prize = prizeList.get(whatPrizeHere());
+                    if (prize.tryPrize()) {
+                        System.out.print("Hit! ");
+                        this.collectedList.add(prizeList.get(this.whatPrizeHere()));
+                        prizeList.set(this.whatPrizeHere(), null);
+                        System.out.println("Amount of Prizes left to collect: " + howManyPrizeLeft());
+                        System.out.println("Amount of Prizes collected: " + collectedList.size());
+                        printPrizeList();
+                    }
+                    else {
+                        System.out.print("Miss! try again. ");
+                    }
                     
                     //if prize list is empty, end the game
                     if (howManyPrizeLeft() == 0)
@@ -104,7 +110,10 @@ public class Main
             }
         }           
     }
-    
+    /**
+     * Gets how many prizes there is left in the game
+     * @return number of prize left.
+     */
     public int howManyPrizeLeft()
     {
         int count = 0;
@@ -175,7 +184,7 @@ public class Main
     
     /**
      * determines if and what prize is below the claw
-     * @return int returns the arrayList position of the prize
+     * @return returns the arrayList position of the prize
      */
     public int whatPrizeHere()
     {
@@ -258,7 +267,7 @@ public class Main
      * generates a random number with parameters
      * @param min the minimum value of random
      * @param max the maximum value of random
-     * @return int returns the randomly generated number
+     * @return returns the randomly generated number
      */
     public int generateRandomNumber(int min, int max)
     {

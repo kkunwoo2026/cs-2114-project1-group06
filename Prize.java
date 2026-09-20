@@ -42,7 +42,7 @@ public class Prize extends Main
     {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
-        this.percentage = generateRandomNumber(1, 100);
+        this.percentage = 30;
     }
     // ----------------------------------------------------------
     /**
@@ -90,6 +90,16 @@ public class Prize extends Main
      * @return the random number.
      */
     // ----------------------------------------------------------
+    /**
+     * Finds out whether the user got the prize.
+     * @return T/F
+     */
+    public boolean tryPrize()
+    {
+        int randomNumber = generateRandomNumber(1, 100);
+
+        return randomNumber <= percentage;
+    }
     // ----------------------------------------------------------
     public int generateRandomNumber(int min, int max)
     {
@@ -104,7 +114,4 @@ public class Prize extends Main
     {
         return percentage;
     }
-    
-    
-
 }
