@@ -44,7 +44,7 @@ public class Player
      */
     public void useTokens()
     {
-        this.tokens = tokens - 10;
+        this.tokens = tokens - 5;
     }
 
 }
