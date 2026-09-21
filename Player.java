@@ -25,7 +25,7 @@ public class Player
      */
     public Player(int tokens)
     {
-        this.getTokens();
+        this.tokens = tokens;
     }
 // ----------------------------------------------------------
 
@@ -46,14 +46,5 @@ public class Player
     {
         this.tokens = tokens - 5;
     }
- // ----------------------------------------------------------
-    /**
-     * This method adds more tokens for the game.
-     * @param addedTokens for the additional tokens needed for the player to
-     * operate the machine. 
-     */
-    public void addTokens(int addedTokens)
-    {
-        this.tokens = tokens + addedTokens;
-    }
+
 }

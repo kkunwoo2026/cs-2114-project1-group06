@@ -33,6 +33,7 @@ public class Main
     private List<Prize> prizeList = new ArrayList<>();
     private List<Prize> collectedList = new ArrayList<>();
     private Claw claw;
+    private Player mainPlayer;
     
     //~ Constructors ..........................................................
     
@@ -44,8 +45,11 @@ public class Main
     public void main()
     {
         //setups the scanner and boolean to check round
+        boolean useTokens = true;
         boolean roundRun = true;
+        mainPlayer = new Player(100);
         Scanner userInput = new Scanner(System.in);
+        
         
         //sets up the prize list and claw
         this.setPrizeList();
@@ -57,67 +61,85 @@ public class Main
         //prints the help info at the start
         printHelp();
         
-        //runs the rounds till prize or miss      
-        while (roundRun)
+        //runs the rounds till prize or miss 
+        while (mainPlayer.getTokens() >= 4)
         {
-            //handles inputs from user
-            System.out.print("Enter command: ");
-            String userInputString = userInput.nextLine();
-            System.out.println(userInputString);
-            
-            
-            //handles the claw picking up
-            //separate instruction if " " is entered
-            if (userInputString.equals(" "))
+            while (roundRun)
             {
-                //checks if a prize is here
-                if (hasPrize()) {
-                    Prize prize = prizeList.get(whatPrizeHere());
-                    if (prize.tryPrize()) {
-                        System.out.print("Hit! ");
-                        this.collectedList.add(prizeList.get(this.whatPrizeHere()));
-                        prizeList.set(this.whatPrizeHere(), null);
-                        System.out.println("Amount of Prizes left to collect: " + howManyPrizeLeft());
-                        System.out.println("Amount of Prizes collected: " + collectedList.size());
-                        printPrizeList();
-                    }
-                    else {
-                        System.out.print("Miss! try again. ");
-                    }
-                    
-                    //if prize list is empty, end the game
-                    if (howManyPrizeLeft() == 0)
-                    {
-                        roundRun = false;
-                        System.out.println("Congrats you got all the prizes!");
-                    }
+                System.out.println(mainPlayer.getTokens());
+                if (useTokens)
+                {
+                    mainPlayer.useTokens();
+                    useTokens = false;
+                }
+                //handles inputs from user
+                System.out.print("Enter command: ");
+                String userInputString = userInput.nextLine();
+                System.out.println(userInputString);
                 
+                
+                //handles the claw picking up
+                //separate instruction if " " is entered
+                if (userInputString.equals(" "))
+                {
+                    useTokens = true;
+                    //checks if a prize is here
+                    if (hasPrize()) {
+                        Prize prize = prizeList.get(whatPrizeHere());
+                        if (prize.tryPrize()) {
+                            System.out.print("Hit! ");
+                            this.collectedList.add(prizeList.get(this.whatPrizeHere()));
+                            prizeList.set(this.whatPrizeHere(), null);
+                            System.out.println("Amount of Prizes left to collect: " + howManyPrizeLeft());
+                            System.out.println("Amount of Prizes collected: " + collectedList.size());
+                            printPrizeList();
+                        }
+                        else {
+                            System.out.print("Miss! try again. ");
+                            printPrizeList();
+                            System.out.print("\n");
+                        }
+                        
+                        //if prize list is empty, end the game
+                        if (howManyPrizeLeft() == 0)
+                        {
+                            roundRun = false;
+                            System.out.println("Congrats you got all the prizes!");
+                        }
+                        else if (mainPlayer.getTokens() <= 0)
+                        {
+                            roundRun = false;
+                            System.out.println("Oops, out of Tokens!");
+                        }
+                    
+                    }
                 }
-            }
-            //print help if h is inputed
-            if (userInputString.equals("h"))
-            {
-                printHelp();
-                printPrizeList();
-            }
-            if (userInputString.equals("lower"))
-            {
-                for (int i = 0; i < this.getPrizeList().size(); i++) {
-                    this.getPrizeList().get(i).setPercentage(15);
+            
+                //print help if h is inputed
+                if (userInputString.equals("h"))
+                {
+                    printHelp();
+                    printPrizeList();
                 }
-            }
-            if (userInputString.equals("higher"))
-            {
-                for (int i = 0; i < this.getPrizeList().size(); i++) {
-                    this.getPrizeList().get(i).setPercentage(50);
+                if (userInputString.equals("lower"))
+                {
+                    for (int i = 0; i < this.getPrizeList().size(); i++) {
+                        this.getPrizeList().get(i).setPercentage(15);
+                    }
                 }
-            }
-            //move the claw as long as the game is not over
-            if (roundRun)
-            {
-                this.getClaw().move(userInputString);
-            }
-        }           
+                if (userInputString.equals("higher"))
+                {
+                    for (int i = 0; i < this.getPrizeList().size(); i++) {
+                        this.getPrizeList().get(i).setPercentage(50);
+                    }
+                }
+                //move the claw as long as the game is not over
+                if (roundRun)
+                {
+                    this.getClaw().move(userInputString);
+                }
+            }           
+        }
     }
     /**
      * Gets how many prizes there is left in the game
@@ -229,7 +251,9 @@ public class Main
             {
                 System.out.println("Prize " + (i + 1) + " taken!");
             }
+            
         }
+        System.out.println("\n Tokens left: " + mainPlayer.getTokens());
     }
     
 
