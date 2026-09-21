@@ -10,6 +10,7 @@ class MainTestRunGame
 {
 
     @Test
+    //test
     void test()
     {
         main();
