@@ -125,7 +125,7 @@ public class Claw extends Main {
                 break;
             case "h":
                 //nothing
-                //This is left as a stub on purpose, as it is also futher modified at Main class.
+                //This is left as a stub on purpose, as it is also further modified at Main class.
                 break;
             case "lower":
                 System.out.println("Set to 15");
