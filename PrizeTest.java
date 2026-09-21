@@ -73,7 +73,8 @@ public class PrizeTest extends TestCase {
     {
         for (int i = 0; i < 100; i++) {
             int number = prize.generateRandomNumber(1, 100);
-            assertTrue(number >= 1 && number <= 100);
+            assertTrue(number >= 1);
+            assertTrue(number <= 100);
         }    
     }
     /**
