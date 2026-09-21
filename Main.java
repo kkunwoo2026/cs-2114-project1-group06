@@ -87,6 +87,7 @@ public class Main
                         Prize prize = prizeList.get(whatPrizeHere());
                         if (prize.tryPrize()) {
                             System.out.print("Hit! ");
+                            System.out.print("\n");
                             this.collectedList.add(prizeList.get(this.whatPrizeHere()));
                             prizeList.set(this.whatPrizeHere(), null);
                             System.out.println("Amount of Prizes left to collect: " + howManyPrizeLeft());
@@ -95,6 +96,7 @@ public class Main
                         }
                         else {
                             System.out.print("Miss! try again. ");
+                            System.out.print("\n");
                             printPrizeList();
                             System.out.print("\n");
                         }
